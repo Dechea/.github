@@ -1,15 +1,11 @@
 {
   "name": "Dechea Fauna Schema CI Workflow",
   "description": "Dechea Fauna Schema CI starter workflow.",
-  "iconName": "fauna-logo",
+  "iconName": "fauna_logo",
   "categories": [
     "JavaScript",
     "TypeScript",
-    "GraphQL"
-  ],
-  "filePatterns": [
-    "package.json$",
-    "fauna",
-    "migrations"
+    "GraphQL",
+    "Deployment"
   ]
 }
