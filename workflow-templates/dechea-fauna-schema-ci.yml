@@ -1,4 +1,4 @@
-name: Database Schema
+name: Build and deploy to Fauna
 
 on:
   push:
@@ -62,7 +62,7 @@ jobs:
           name: coverage-files
           path: coverage
 
-      - uses: sonarsource/sonarcloud-github-action@master
+      - uses: sonarsource/sonarcloud-github-action@v1.6
         name: SonarCloud Scan
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_SCHEMA }}
