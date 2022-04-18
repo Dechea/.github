@@ -1,25 +1,46 @@
-name: Dechea Fauna Schema CI
+name: Database Schema
 
 on:
-  workflow_call:
-    inputs:
-      GITHUB_REPOSITORIES:
-        required: true
-        type: string
-      FAUNA_DATABASE:
-        required: true
-        type: string
-    secrets:
-      GITHUB_PAT:
-        required: true
-      FAUNA_URL:
-        required: true
-      FAUNA_TOKEN:
-        required: true
-      SONAR_TOKEN_SCHEMA:
-        required: true
-      GITHUB_TOKEN:
-        required: true
+  push:
+    branches: [ $default-branch ]
+  pull_request:
+    branches: [ $default-branch ]
+
+#on:
+#  workflow_call:
+#    inputs:
+#      GITHUB_REPOSITORIES:
+#        required: true
+#        type: string
+#      FAUNA_DATABASE:
+#        required: true
+#        type: string
+#    secrets:
+#      GITHUB_PAT:
+#        required: true
+#      FAUNA_URL:
+#        required: true
+#      FAUNA_TOKEN:
+#        required: true
+#      SONAR_TOKEN_SCHEMA:
+#        required: true
+#      GITHUB_TOKEN:
+#        required: true
+#jobs:
+#  build:
+#    runs-on: ubuntu-latest
+#
+#    steps:
+#      - uses: actions/checkout@v3
+#      - name: Fauna Domain IaC
+#        uses: Dechea/Fauna-Domain-IaC_-Action-@main
+#        with:
+#          GITHUB_REPOSITORIES: ${{ inputs.GITHUB_REPOSITORIES}}
+#          GITHUB_PAT: ${{ secrets.SCHEMA_PAT_GITHUB }}
+#          FAUNA_DATABASE: ${{ inputs.FAUNA_DATABASE}}
+#          FAUNA_DOMAIN: ${{ secrets.FAUNA_URL }}
+#          FAUNA_SECRET: ${{ secrets.FAUNA_TOKEN }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -27,11 +48,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Fauna Domain IaC
-        uses: Dechea/Fauna-Domain-IaC_-Action-@main
+        uses: Dechea/Fauna-IaC_Action@v1
         with:
-          GITHUB_REPOSITORIES: ${{ inputs.GITHUB_REPOSITORIES}}
+          GITHUB_REPOSITORIES: 'Dechea/ORC_Schema@master,Dechea/USR_Schema@master,Dechea/CLS_Schema@master,Dechea/HES_Schema@master'
           GITHUB_PAT: ${{ secrets.SCHEMA_PAT_GITHUB }}
-          FAUNA_DATABASE: ${{ inputs.FAUNA_DATABASE}}
+          FAUNA_DATABASE: 'Production'
           FAUNA_DOMAIN: ${{ secrets.FAUNA_URL }}
           FAUNA_SECRET: ${{ secrets.FAUNA_TOKEN }}
 
