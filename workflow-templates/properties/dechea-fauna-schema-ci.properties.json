@@ -1,0 +1,10 @@
+{
+  "name": "Continuous Deployment | Fauna",
+  "description": "Continous deployment worflow to build, test and deploy the Fauna IaC to production throughout develop stage.",
+  "categories": [
+    "JavaScript",
+    "TypeScript",
+    "GraphQL",
+    "Deployment"
+  ]
+}
