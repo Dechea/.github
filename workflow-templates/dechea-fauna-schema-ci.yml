@@ -62,7 +62,7 @@ jobs:
           name: coverage-files
           path: coverage
 
-      - uses: sonarsource/sonarcloud-github-action@v1.6
+      - uses: sonarsource/sonarcloud-github-action@v1.9
         name: SonarCloud Scan
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_SCHEMA }}
